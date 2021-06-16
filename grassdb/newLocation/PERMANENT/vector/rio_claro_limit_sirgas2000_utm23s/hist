@@ -1,0 +1,8 @@
+COMMAND: v.in.ogr -e input="/home/mude/data/github/lscorridors/01_data/rio_claro_limit_sirgas2000_utm23s.shp" output="rio_claro_limit_sirgas2000_utm23s" min_area=0.0001 type="" snap=-1
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Tue Jun 15 23:40:57 2021
+-----------------------------------------------------
+1 input polygons
+Total area: 4.98947E+08 (1 areas)
+Overlapping area: 0 (0 areas)
+Area without category: 0 (0 areas)

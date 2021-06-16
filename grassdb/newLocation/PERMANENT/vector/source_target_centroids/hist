@@ -1,0 +1,12 @@
+COMMAND: v.in.ogr --overwrite input="source_target_sirgas2000_utm23s.shp" output="source_target" min_area=0.0001 type="" snap=-1
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 00:08:12 2021
+-----------------------------------------------------
+10 input polygons
+Total area: 2.21742E+07 (180 areas)
+Overlapping area: 0 (0 areas)
+Area without category: 2.4669E+06 (170 areas)
+---------------------------------------------------------------------------------
+COMMAND: v.centerpoint --overwrite input="source_target" output="source_target_centroids" type="point,line,area" layer="1" pcenter="mean" lcenter="mid" acenter="mean"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 00:48:14 2021

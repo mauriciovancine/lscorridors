@@ -1,0 +1,7 @@
+COMMAND: r.to.vect --overwrite input="source" output="source_shp" type="area" column="value"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:17:15 2021
+---------------------------------------------------------------------------------
+COMMAND: v.db.addcolumn --o map=source_shp 'columns=x double precision,y double precision'
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:17:16 2021

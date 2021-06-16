@@ -924,7 +924,7 @@ class Corridors(wx.Panel):
           self.res2 = self.res.split('\n')
           #self.res3 = self.res2[5] 
           # The position of the ewres resolution parameter changes from GRASS 7.0 to grass 7.2 - let's change that!
-          self.res3 = filter(lambda x: 'ewres' in x, self.res2)[0]
+          self.res3 = ''.join(list(filter(lambda x: 'ewres' in x, self.res2)))
           self.res3 = float(self.res3.replace('ewres=',''))
           
           # Third, calculate window size (landscape scale x 2) in number of pixels
@@ -1079,7 +1079,7 @@ class Corridors(wx.Panel):
             self.res2 = self.res.split('\n')
             # self.res3 = self.res2[5]
             # The position of the ewres resolution parameter changes from GRASS 7.0 to grass 7.2 - let's change that!
-            self.res3 = filter(lambda x: 'ewres' in x, self.res2)[0]
+            self.res3 = ''.join(list(filter(lambda x: 'ewres' in x, self.res2)))
             self.res3 = float(self.res3.replace('ewres=',''))
             
             # This variables are used to define whether simulations for method MP were already 
@@ -1185,7 +1185,7 @@ class Corridors(wx.Panel):
               self.Nsimulations = self.Nsimulations1_tobe_realized + self.Nsimulations2 + self.Nsimulations3 + self.Nsimulations4
               
               # Transforming list of STs in integers (for recongnizing them in the map)       
-              self.patch_id_list=map(int,self.patch_id_list_bkp)
+              self.patch_id_list = list(map(int, self.patch_id_list_bkp))
               
               #---------------------------------------------#
               #--------------- START SIMULATIONS -----------#
@@ -1553,7 +1553,7 @@ class Corridors(wx.Panel):
                     self.x_b = self.x.split('\n')
                     # Sum of the cost of each pixel along the corridor, string format
                     #self.x_c = str(self.x_b[14])
-                    self.x_c = filter(lambda x: 'sum' in x, self.x_b)[0]
+                    self.x_c = ''.join(list(filter(lambda x: 'sum' in x, self.x_b)))
                     # Value of the corridor total cost, float format
                     self.var_cost_sum = float(self.x_c.replace("sum: ",""))
                     
@@ -1567,7 +1567,7 @@ class Corridors(wx.Panel):
                     self.length_b=self.length.split('\n')
                     # Sum of pixels (value 1) of the corridor, string format
                     #self.length_c=str(self.length_b[14])
-                    self.length_c = filter(lambda x: 'sum' in x, self.length_b)[0]
+                    self.length_c = ''.join(list(filter(lambda x: 'sum' in x, self.length_b)))
                     # Sum of pixels of the corridor, float format
                     #self.length_d = self.length_c[5:9]
                     #self.length_e = float(self.length_d)
@@ -1604,7 +1604,7 @@ class Corridors(wx.Panel):
                     grass.read_command ('v.to.db', map=self.outline1, option='length', type='line', col='dist', units='me', overwrite = True)
                     # Exports output vector
                     os.chdir(self.outdir)
-                    grass.run_command('v.out.ogr', input=self.outline1, dsn=self.outline1+'.shp',verbose=False,type='line')            
+                    grass.run_command('v.out.ogr', input=self.outline1, dsn=self.outline1+'.shp', format = 'ESRI_Shapefile', verbose=False, type='line')            
                     grass.run_command('g.remove', type="vect", name=self.outline1, flags='f')              
                     cont=cont+1
                     

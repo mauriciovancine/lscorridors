@@ -1,0 +1,15 @@
+COMMAND: v.random --overwrite output="temp_point1_t" npoints=30 layer="-1" zmin=0.0 zmax=0.0 column_type="double precision"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:18:36 2021
+---------------------------------------------------------------------------------
+COMMAND: v.select --overwrite ainput="temp_point1_t" alayer="1" atype="point,line,area" binput="target_shp" blayer="1" btype="point,line,area" output="temp_point2_t" operator="overlap"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:18:36 2021
+---------------------------------------------------------------------------------
+COMMAND: v.db.connect --quiet map="temp_point2_t" driver="sqlite" database="$GISDBASE/$LOCATION_NAME/$MAPSET/sqlite/sqlite.db" table="temp_point2_t" key="cat" layer="1" separator="pipe"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:18:37 2021
+---------------------------------------------------------------------------------
+COMMAND: v.db.addtable map=temp_point2_t 'columns=temp double precision'
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:18:37 2021

@@ -1,0 +1,3 @@
+COMMAND: v.random --overwrite output="temp_point1_s" npoints=30 layer="-1" zmin=0.0 zmax=0.0 column_type="double precision"
+GISDBASE: /home/mude/data/github/lscorridors/grassdb
+LOCATION: newLocation MAPSET: PERMANENT USER: mude DATE: Wed Jun 16 02:18:42 2021
